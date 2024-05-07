@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chandrasekhar Limit Visualization</title>
+<style>
+/* Define the container for the animation */
+.chandrasekhar-limit-container {
+  width: 600px;
+  height: 400px;
+  position: relative;
+  margin: 50px auto;
+}
+
+/* Define the star element */
+.star {
+  width: 20px;
+  height: 20px;
+  background-color: yellow;
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulsate 2s infinite alternate;
+}
+
+/* Define the animation */
+@keyframes pulsate {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 0, 0.7);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.2);
+    box-shadow: 0 0 0 10px rgba(255, 255, 0, 0);
+  }
+}
+
+/* Define the Chandrasekhar limit line */
+.chandrasekhar-limit-line {
+  position: absolute;
+  width: 2px;
+  height: 100%;
+  background-color: red;
+  left: 50%;
+  top: 0;
+}
+
+/* Define the label for the Chandrasekhar limit */
+.chandrasekhar-limit-label {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: red;
+  font-weight: bold;
+}
+
+/* Define the label for the star */
+.star-label {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: black;
+  font-size: 16px;
+}
+
+/* Define the outer shell of the star */
+.star-shell {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255,255,255,0) 50%, rgba(255,255,255,0.8) 100%);
+}
+
+/* Define the inner core of the star */
+.star-core {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  animation: pulsateCore 2s infinite alternate;
+}
+
+/* Define the animation for the star core */
+@keyframes pulsateCore {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.2);
+    box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="chandrasekhar-limit-container">
+  <div class="star-shell"></div>
+  <div class="star-core"></div>
+  <div class="chandrasekhar-limit-line"></div>
+  <div class="chandrasekhar-limit-label">Chandrasekhar Limit</div>
+  <div class="star"></div>
+  <div class="star-label">Star</div>
+</div>
+
+</body>
+</html>
